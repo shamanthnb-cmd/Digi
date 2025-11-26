@@ -9,12 +9,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repo') {
-            steps {
-                git branch: 'main', url: 'https://github.com/<your-repo>.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 script {
