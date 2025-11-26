@@ -12,7 +12,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t $DOCKERHUB_USER/$IMAGE_NAME:latest ."
+                    bat "docker build -t $DOCKERHUB_USER/$IMAGE_NAME:latest ."
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS,
                                                     usernameVariable: 'USER',
                                                     passwordVariable: 'PASS')]) {
-                        sh "echo $PASS | docker login -u $USER --password-stdin"
+                        bat "echo $PASS | docker login -u $USER --password-stdin"
                     }
                 }
             }
@@ -32,7 +32,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    sh "docker push $DOCKERHUB_USER/$IMAGE_NAME:latest"
+                    bat "docker push $DOCKERHUB_USER/$IMAGE_NAME:latest"
                 }
             }
         }
@@ -40,7 +40,7 @@ pipeline {
 
     post {
         always {
-            sh 'docker logout'
+            bat 'docker logout'
         }
     }
 }
