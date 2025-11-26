@@ -12,7 +12,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    bat "docker build -t $DOCKERHUB_USER/$IMAGE_NAME:latest ."
+                    bat "docker build -t shamanth123/my-demo-app:latest ."
                 }
             }
         }
@@ -32,7 +32,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    bat "docker push $DOCKERHUB_USER/$IMAGE_NAME:latest"
+                    bat "docker push shamanth123/my-demo-app:latest"
                 }
             }
         }
