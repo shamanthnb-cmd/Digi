@@ -15,7 +15,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    bat "docker build -t shamanth123/my-demo-app:latest ."
+                    bat "docker build -t shamanth123/my-demo-app:12 ."
                 }
             }
         }
