@@ -35,7 +35,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    bat "docker push shamanth123/my-demo-app:latest"
+                    bat "docker push shamanth123/my-demo-app:12"
                 }
             }
         }
