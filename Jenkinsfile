@@ -6,6 +6,9 @@ pipeline {
         DOCKERHUB_USER = 'your-dockerhub-username'
         IMAGE_NAME = 'your-image-name'
     }
+    triggers {
+        githubPush()
+    }
 
     stages {
 
