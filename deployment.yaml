@@ -1,4 +1,5 @@
-containers:
+spec:
+  containers:
   - name: html-app
     image: nginx:latest
     ports:
